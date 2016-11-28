@@ -1,0 +1,13 @@
+#Config for {{ item.hostname }}
+hostname {{ item.hostname|upper }}
+
+#
+{ % for uplink in item.uplinks %}
+interface {{uplink.router_port}}
+  ip address {{ uplink.router_ip}} 255.255.255.0
+{ % endfor % }
+
+{ % for server in city[item.city].ntp_servers %}
+ntp server {{server}}
+{& endfor %} 
+  

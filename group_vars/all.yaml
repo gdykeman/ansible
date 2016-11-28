@@ -1,0 +1,10 @@
+---
+
+city:
+    raleigh:
+      ntp_servers:
+        - 10.0.0.1
+
+    durham:
+      ntp_servers:
+        - 192.168.0.1

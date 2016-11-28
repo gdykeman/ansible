@@ -1,10 +1,19 @@
 ---
 - name: Check Cisco IOS running Version
   hosts: ios
+  connection: local
+
+  vars:
+    cli:
+#      host: "{{ inventory_hostname }}"
+      host: R1
+      username: gdykeman
+      password: cisco
+      transport: cli
 
   tasks:
     - name: collect and validate Version
       ios_command:
         commands: show Version
-        waitfor: result[0] contains "Version 15.6(1)T"
+        waitfor: result[0] contains "Version 15.6(2)T"
         provider: "{{ cli }}"

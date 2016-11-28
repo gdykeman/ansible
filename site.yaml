@@ -1,0 +1,7 @@
+---
+- name: Apply Router Role
+  gather_facts: no
+  hosts: ios
+
+  roles:
+    - routers
